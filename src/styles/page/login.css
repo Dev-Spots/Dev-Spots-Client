@@ -1,0 +1,6 @@
+@import url("../utility/text.css");
+@import url("../utility/form.css");
+
+.signin-paragraph {
+  font-size: 1rem;
+}
