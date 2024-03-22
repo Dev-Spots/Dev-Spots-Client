@@ -6,6 +6,8 @@ import { useFormStatus } from "react-dom";
 import { signIn } from "next-auth/react";
 import { swalError } from "@/helpers/swal";
 import LoadingOverlay from "@/components/loader/overlay";
+import { Input } from "@/components/atoms/form/material-tailwind";
+import { Typography } from "@/components/atoms/typography/material-tailwind";
 
 export interface LoginState {
   email: string;
@@ -49,24 +51,47 @@ export default function LoginForm() {
 
   return (
     <LoadingOverlay spinner text="...loading" active={pending}>
-      <div className="form-group">
-        <input
-          type="email"
-          placeholder="Email Address"
-          name="email"
-          value={data.email}
+      <div className="mb-1 flex flex-col gap-6">
+        <Typography
+          variant="h6"
+          color="blue-gray"
+          className="-mb-2 text-cyan-100"
+        >
+          Your Email
+        </Typography>
+        <Input
+          size="lg"
+          placeholder="name@mail.com"
+          className=" !border-t-blue-gray-200 focus:!border-t-cyan-300"
+          labelProps={{
+            className: "before:content-none after:content-none text-gray-50",
+          }}
           onChange={handleChange}
-          required
+          value={data.email}
+          name="email"
+          variant="outlined"
+          color="white"
         />
-      </div>
-      <div className="form-group">
-        <input
+        <Typography
+          variant="h6"
+          color="blue-gray"
+          className="-mb-2 text-cyan-100"
+        >
+          Password
+        </Typography>
+        <Input
           type="password"
-          placeholder="Password"
-          name="password"
           value={data.password}
           onChange={handleChange}
-          minLength={6}
+          name="password"
+          variant="outlined"
+          size="lg"
+          color="white"
+          placeholder="********"
+          className=" !border-t-blue-gray-200 focus:!border-t-cyan-300"
+          labelProps={{
+            className: "before:content-none after:content-none",
+          }}
         />
       </div>
     </LoadingOverlay>

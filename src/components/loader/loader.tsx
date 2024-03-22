@@ -1,4 +1,4 @@
-import "@/styles/utility/loading.css";
+import "@/styles/loading.css";
 
 export type loaderType = "ball" | "pulse" | "pulsating" | "bar" | "spinner";
 
